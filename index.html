@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Invite</title>
+    <link rel="icon" type="image/png" href="icon1.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- FULL WIDTH HERO IMAGE at top -->
+    <div class="full-width-image">
+        <img src="titleRed.png" alt="Party celebration backdrop with lights and confetti">
+        <div class="image-overlay"></div>
+    </div>
+
+    <div class="full-width-image">
+        <img src="envelope.png" alt="Party celebration backdrop with lights and confetti">
+        <div class="image-overlay"></div>
+    </div>
+
+    <div class="full-width-image">
+        <img src="date.png" alt="Party celebration backdrop with lights and confetti">
+        <div class="image-overlay"></div>
+    </div>
+
+    <div class="container">
+        <!-- SCROLLABLE INFO GRID (generic but thematic) -->
+        <div class="invite-grid">                    
+            <!-- Left side: Flip card countdown -->
+            <div style="flex: 1;">
+                <div class="countdown">
+                    Countdown
+                </div>
+                <div id="countdownDisplay" class="countdownDisplay">
+                    <!-- Flip cards will be injected here by JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="locationBody">
+    <div class="location-card">
+        <div class="location-visual">
+            <img class="location-img" src="food.png" alt="scenic">
+            <div class="img-overlay"></div>
+            <div class="badge-location">
+            <i class="fas fa-map-marker-alt"></i> 
+            <span>DHA Phase 6 · Lahore</span>
+            </div>
+        </div>
+        <div class="location-details">
+            <div class="title-row">
+            <h1 class="location-name">China lanzhou Beef Noodles</h1>
+            <!-- <span class="region">Lahore, Pakistan</span> -->
+            </div>
+            <p class="description">
+            Moiz's favourite dumpling spot that he won't stop talking about wistfully wishing 
+            he could get us some cause they have the best dumplings he's ever had but it's way 
+            too far away for us to go on a regular hangout thus he planned his treat around this 
+            place so that we may at last savour the most scrumptious of dumpling blessed to mankind
+            </p>
+            
+            <div class="divider"></div>
+
+            <!-- Google Maps Link — exact provided URL -->
+            <div class="maps-link-container">
+            <a href="https://maps.app.goo.gl/54YEJZ9RmDuWnmMt7" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="google-maps-btn">
+                <i class="fab fa-google-maps"></i> 
+                <span>Open Map</span>
+                <i class="fas fa-arrow-right" style="font-size: 0.75rem; opacity: 0.8;"></i>
+            </a>
+            </div>
+    </div>
+    </div>
+
+</div>
+
+
+
+    <div class="end">Hope to see you there!</div>
+
+
+    <footer style="background: #66081f; padding: 1.5rem; text-align: center; color: rgba(255,255,255,0.7); font-size: 1rem;">
+     The Gathering · Celebrate Life <br>
+    © 2026 All friends welcome
+</footer>
+    
+  <!-- </div>
+</div> -->
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        (function() {
+
+            // Countdown to event date: May 1, 2026 19:00:00 (party start)
+            const eventDate = new Date(2026, 4, 1, 19, 0, 0);
+            let previousValues = { days: '', hours: '', minutes: '', seconds: '' };
+
+            function formatTimeComponents(ms) {
+                const totalSeconds = Math.floor(ms / 1000);
+                const days = Math.floor(totalSeconds / 86400);
+                const hours = Math.floor((totalSeconds % 86400) / 3600);
+                const minutes = Math.floor((totalSeconds % 3600) / 60);
+                const seconds = totalSeconds % 60;
+                return {
+                    days: String(days),
+                    hours: String(hours).padStart(2, '0'),
+                    minutes: String(minutes).padStart(2, '0'),
+                    seconds: String(seconds).padStart(2, '0')
+                };
+            }
+
+            function createFlipElement(value, label, id) {
+                return `
+                    <div class="flip-unit">
+                        <div class="flip-card" data-unit="${id}" data-value="${value}">
+                            <span>${value}</span>
+                        </div>
+                        <div class="flip-label">${label}</div>
+                    </div>
+                `;
+            }
+
+            function updateFlipCard(unitId, newValue) {
+                const card = document.querySelector(`.flip-card[data-unit="${unitId}"]`);
+                if (!card) return;
+                
+                const currentValue = card.getAttribute('data-value');
+                if (currentValue === newValue) return;
+                
+                const span = card.querySelector('span');
+                
+                // Add flip animation
+                card.classList.add('flipping');
+                
+                // Update the number halfway through the animation
+                setTimeout(() => {
+                    if (span) span.textContent = newValue;
+                    card.setAttribute('data-value', newValue);
+                }, 175);
+                
+                // Remove animation class after complete
+                setTimeout(() => {
+                    card.classList.remove('flipping');
+                }, 350);
+            }
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = eventDate.getTime() - now;
+                const countdownElement = document.getElementById('countdownDisplay');
+                
+                if (!countdownElement) return;
+                
+                if (distance < 0) {
+                    countdownElement.innerHTML = `
+                        <div style="background: white; color: #66081f; padding: 0.8rem 1.8rem; border-radius: 60px; font-weight: bold; font-size: 1.2rem; text-align: center;">
+                            🎉 THE PARTY IS HAPPENING NOW! 🎉
+                        </div>
+                    `;
+                    return;
+                }
+                
+                const { days, hours, minutes, seconds } = formatTimeComponents(distance);
+                
+                // Initial render - check if cards exist
+                const existingCards = countdownElement.querySelector('.flip-card');
+                
+                if (!existingCards) {
+                    // First run - create all cards
+                    countdownElement.innerHTML = 
+                        createFlipElement(days, 'DAYS', 'days') +
+                        createFlipElement(hours, 'HOURS', 'hours') +
+                        createFlipElement(minutes, 'MINUTES', 'minutes') +
+                        createFlipElement(seconds, 'SECONDS', 'seconds');
+                    
+                    // Store initial values
+                    previousValues = { days, hours, minutes, seconds };
+                } else {
+                    // Update only the cards that changed
+                    if (previousValues.days !== days) updateFlipCard('days', days);
+                    if (previousValues.hours !== hours) updateFlipCard('hours', hours);
+                    if (previousValues.minutes !== minutes) updateFlipCard('minutes', minutes);
+                    if (previousValues.seconds !== seconds) updateFlipCard('seconds', seconds);
+                    
+                    // Store current values for next comparison
+                    previousValues = { days, hours, minutes, seconds };
+                }
+            }
+
+            // Start countdown
+            updateCountdown();
+            // Update every second
+            setInterval(updateCountdown, 1000);
+
+            // 3) Smooth scroll for the RSVP CTA from hero -> rsvp card area
+            const ctaBtn = document.querySelector('.cta-button');
+            if (ctaBtn) {
+                ctaBtn.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const targetSection = document.getElementById('rsvp-now');
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        // optional quick emphasis flash effect
+                        targetSection.style.transition = 'box-shadow 0.2s';
+                        targetSection.style.boxShadow = '0 0 0 3px #f39c12, 0 8px 20px rgba(0,0,0,0.2)';
+                        setTimeout(() => {
+                            targetSection.style.boxShadow = '';
+                        }, 800);
+                    }
+                });
+            }
+
+        })();
+
+    </script>
+</body>
+</html>
