@@ -197,7 +197,7 @@ body {
       align-items: center;
       justify-content: center;
       /* font-family: 'Inter', sans-serif; */
-      padding: 10rem;
+      padding: 2rem;
     }
 
 /* main card container — elegant frosted glass */
@@ -367,13 +367,6 @@ body {
         }
 
     .google-maps-btn:hover {
-        /* background: #e8d5b8;
-        transform: translateY(-2px);
-        box-shadow: 0 8px 18px -6px rgba(0, 0, 0, 0.12);
-        border-color: rgba(74, 44, 26, 0.4);
-        gap: 15px;
-        color: #3a2212; */
-        /* Hover Effects */
         transform: translateY(-4px);
         /* box-shadow: 7px 7px 20px 5px rgba(0, 0, 0, 0.3); */
         box-shadow: 7px 7px 20px 2px rgba(0, 0, 0, 0.2);
@@ -409,21 +402,105 @@ body {
       color: #3b6e8b;
     }
 
-    /* responsiveness */
-    @media (max-width: 480px) {
+    /* Mobile responsiveness for location card */
+    @media (max-width: 768px) {
+      .locationBody {
+        padding: 1rem;
+        align-items: flex-start;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+      }
+      
+      .location-card {
+        max-width: 95%;
+        border-radius: 1.5rem;
+      }
+      
+      .location-visual {
+        height: 200px;
+      }
+      
       .location-details {
-        padding: 1.4rem;
+        padding: 1.2rem;
       }
+      
       .location-name {
-        font-size: 1.7rem;
+        font-size: 1.5rem;
       }
-      .google-maps-btn {
-        padding: 0.6rem 1.4rem;
+      
+      .region {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.7rem;
+      }
+      
+      .description {
         font-size: 0.85rem;
+        margin: 0.6rem 0;
+      }
+      
+      .google-maps-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .info-hint {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .title-row {
+        gap: 8px;
       }
     }
 
+    @media (max-width: 480px) {
+      .locationBody {
+        padding: 0.75rem;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+      }
+      
+      .location-visual {
+        height: 180px;
+      }
+      
+      .location-details {
+        padding: 1rem;
+      }
+      
+      .location-name {
+        font-size: 1.3rem;
+      }
+      
+      .badge-location {
+        bottom: 12px;
+        left: 12px;
+        padding: 0.25rem 0.7rem;
+        font-size: 0.7rem;
+      }
+      
+      .description {
+        font-size: 0.8rem;
+      }
+      
+      .google-maps-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+      }
+    }
 
+    @media (max-width: 768px) and (orientation: landscape) {
+      .locationBody {
+        padding: 1rem;
+        align-items: center;
+      }
+      
+      .location-visual {
+        height: 150px;
+      }
+    }
 
 /* responsive tweaks */
 @media (max-width: 768px) {
@@ -450,6 +527,8 @@ body {
     
     .flip-card {
         min-width: clamp(40px, 15vw, 60px);
+        font-size: clamp(2rem, 8vw, 10rem);
+        padding: 0.3rem 0.5rem;
     }
     
     .flip-label {
@@ -543,342 +622,3 @@ html, body {
         justify-content: center;
     }
 }
-
-/* ------- */
-
-    .dashboard {
-      max-width: 1100px;
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: center;
-    }
-
-    /* .card {
-      background: rgba(255, 253, 250, 0.96);
-      border-radius: 2rem;
-      box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.15), 0 2px 8px rgba(0, 0, 0, 0.02);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      overflow: hidden;
-      backdrop-filter: blur(2px);
-    } */
-
-    .plan-card {
-      flex: 2;
-      min-width: 280px;
-    }
-
-    .whosin-card {
-      flex: 1.2;
-      min-width: 260px;
-    }
-
-    /* .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 30px 45px -12px rgba(0, 0, 0, 0.2);
-    } */
-
-    .card-header {
-      /* padding: 1.4rem 1.5rem 0.8rem 1.5rem;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.04); */
-      /* color: #66081f; */
-    color: black;
-    scroll-behavior: smooth;
-    line-height: 1.5;
-    /* font-size: 10rem;  */
-    font-size: clamp(2rem, 10vw, 10rem);
-    text-transform: uppercase; 
-    letter-spacing: 2px; 
-    /* color: rgba(255,255,255,0.7);  */
-    margin-bottom: 0.8rem; 
-    text-align: center;
-
-
-    }
-
-    .day-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: #f3ede7;
-      padding: 0.3rem 1rem;
-      border-radius: 100px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: #5e4b3a;
-      margin-bottom: 0.75rem;
-    }
-
-    h2 {
-      font-size: 1.6rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      background: linear-gradient(135deg, #362a21, #7e5e48);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      line-height: 1.2;
-    }
-
-    .sub {
-      color: #8f7a68;
-      font-weight: 400;
-      font-size: 0.8rem;
-      margin-top: 0.25rem;
-    }
-
-    .plan-list {
-      padding: 1.4rem 1.5rem 1.8rem 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.9rem;
-    }
-
-    .plan-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.9rem;
-      background: #ffffff;
-      padding: 0.8rem 1rem;
-      border-radius: 1.5rem;
-      transition: all 0.18s ease;
-      border: 1px solid rgba(210, 190, 170, 0.2);
-    }
-
-    .plan-item:hover {
-      background: #fefcf9;
-      border-color: #ecdccd;
-      transform: translateX(4px);
-    }
-
-    .time-marker {
-      min-width: 75px;
-      font-weight: 550;
-      font-size: 0.75rem;
-      color: #b48c6c;
-      background: #fcf6f0;
-      padding: 0.2rem 0.6rem;
-      border-radius: 40px;
-      text-align: center;
-      white-space: nowrap;
-    }
-
-    .plan-content {
-      flex: 1;
-      font-weight: 450;
-      color: #2c241e;
-      font-size: 2rem;
-      line-height: 1.4;
-    }
-
-    .emoji-deco {
-      font-size: 1.1rem;
-      margin-right: 6px;
-      display: inline-block;
-    }
-
-    .chill-vibe {
-      background: #fff3e8;
-      border-left: 3px solid #e2c7b0;
-    }
-
-    .members-list {
-      padding: 1.2rem 1.5rem 0.5rem 1.5rem;
-    }
-
-    .member-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.7rem 0;
-      border-bottom: 1px solid rgba(200, 180, 160, 0.2);
-    }
-
-    .member-info {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .member-avatar {
-      width: 34px;
-      height: 34px;
-      background: #f2e7de;
-      border-radius: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      font-weight: 500;
-      color: #8f6d51;
-    }
-
-    .member-name {
-      font-weight: 500;
-      color: #362a21;
-      font-size: 0.9rem;
-    }
-
-    .status-badge {
-      font-size: 0.7rem;
-      background: #f1ebe5;
-      padding: 0.2rem 0.7rem;
-      border-radius: 40px;
-      color: #6e5844;
-    }
-
-    .status-badge.in {
-      background: #e2d9cf;
-      color: #4f3a28;
-      font-weight: 500;
-    }
-
-    .status-badge.maybe {
-      background: #f5ede4;
-      color: #a0846a;
-    }
-
-    .toggle-btn {
-      background: none;
-      border: none;
-      font-size: 1.1rem;
-      cursor: pointer;
-      opacity: 0.6;
-      transition: 0.1s;
-      width: 30px;
-      border-radius: 30px;
-      padding: 4px;
-    }
-
-    .toggle-btn:hover {
-      opacity: 1;
-      background: #f1e8e0;
-    }
-
-    .add-member-row {
-      margin: 0.5rem 1.5rem 0.8rem 1.5rem;
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .add-input {
-      flex: 1;
-      border: 1px solid #e5d5c6;
-      background: #fffdfa;
-      border-radius: 60px;
-      padding: 0.5rem 1rem;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.8rem;
-      outline: none;
-    }
-
-    .add-input:focus {
-      border-color: #c6aa8e;
-      box-shadow: 0 0 0 2px rgba(198, 170, 142, 0.2);
-    }
-
-    .add-btn {
-      background: #eadbcb;
-      border: none;
-      border-radius: 60px;
-      padding: 0.45rem 1rem;
-      font-weight: 500;
-      font-size: 0.7rem;
-      color: #4f3928;
-      cursor: pointer;
-      transition: 0.15s;
-    }
-
-    .add-btn:hover {
-      background: #ddcdbb;
-    }
-
-    .rsvp-summary {
-      background: #f9f3ed;
-      margin: 0.2rem 1.5rem 1.5rem 1.5rem;
-      border-radius: 1.5rem;
-      padding: 0.6rem 1rem;
-      font-size: 0.75rem;
-      color: #917a64;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
-    .footnote {
-      background: #fffbf7;
-      padding: 0.8rem 1.5rem 1.4rem 1.5rem;
-      border-top: 1px solid rgba(0, 0, 0, 0.03);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .edit-btn {
-      background: rgba(190, 160, 135, 0.12);
-      padding: 0.3rem 0.9rem;
-      border-radius: 40px;
-      font-size: 0.7rem;
-      font-weight: 500;
-      color: #8f735b;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      transition: 0.2s;
-      border: none;
-      font-family: inherit;
-    }
-
-    .edit-btn:hover {
-      background: #e6d7cb;
-      color: #4a3729;
-    }
-
-    textarea {
-      width: 100%;
-      font-family: 'Inter', monospace;
-      font-size: 0.85rem;
-      padding: 0.9rem;
-      border-radius: 1.2rem;
-      border: 1px solid #e2cfbe;
-      background: #fffdfa;
-      resize: vertical;
-    }
-
-    .edit-mode-container {
-      padding: 0 1.5rem 1.2rem 1.5rem;
-    }
-
-    .inline-edit-actions {
-      margin-top: 0.7rem;
-      display: flex;
-      justify-content: flex-end;
-      gap: 12px;
-    }
-
-    .save-btn {
-      background: #e8d9ce;
-      color: #4a3525;
-    }
-
-    .vibe-tag {
-      background: #f3ede7;
-      border-radius: 60px;
-      padding: 0.3rem 0.9rem;
-      font-size: 0.7rem;
-      color: #745e4a;
-    }
-
-    .view-mode {
-      display: flex;
-    }
-
-    .hidden-edit {
-      display: none;
-    }
