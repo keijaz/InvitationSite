@@ -95,7 +95,7 @@
         (function() {
 
             // Countdown to event date: May 1, 2026 19:00:00 (party start)
-            const eventDate = new Date(2026, 4, 1, 19, 0, 0);
+            const eventDate = new Date(2027, 4, 1, 19, 0, 0);
             let previousValues = { days: '', hours: '', minutes: '', seconds: '' };
 
             function formatTimeComponents(ms) {
@@ -157,7 +157,7 @@
                 if (distance < 0) {
                     countdownElement.innerHTML = `
                         <div style="background: white; color: #66081f; padding: 0.8rem 1.8rem; border-radius: 60px; font-weight: bold; font-size: 1.2rem; text-align: center;">
-                            🎉 THE PARTY IS HAPPENING NOW! 🎉
+                             THE PARTY IS HAPPENING NOW! 
                         </div>
                     `;
                     return;
