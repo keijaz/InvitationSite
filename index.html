@@ -76,9 +76,15 @@
     </div>
 
 </div>
-
-
-
+    <!-- <div class="itinerary">
+        <div class="end">₊˚✧Itinerary₊˚✧ </div>
+        <div class="short"> -> Get to Zainabs place around 10am <- </div>
+        <div class="short"> -> Be gay do crimes<- </div>
+        <div class="short">-> Get dumplings eventually<- </div>
+        <div class="short">-> skitter back home like little rats <- <br> (except dua whos probably staying over)</div>
+    </div> -->
+      
+    
     <div class="end">Hope to see you there!!!</div>
 
 
@@ -96,6 +102,7 @@
 
             // Countdown to event date: May 1, 2026 19:00:00 (party start)
             const eventDate = new Date(2027, 4, 1, 19, 0, 0);
+
             let previousValues = { days: '', hours: '', minutes: '', seconds: '' };
 
             function formatTimeComponents(ms) {
@@ -157,7 +164,11 @@
                 if (distance < 0) {
                     countdownElement.innerHTML = `
                         <div style="background: white; color: #66081f; padding: 0.8rem 1.8rem; border-radius: 60px; font-weight: bold; font-size: 1.2rem; text-align: center;">
+<<<<<<< HEAD
                              THE PARTY IS HAPPENING NOW! 
+=======
+                            THE PARTY IS HAPPENING NOW!
+>>>>>>> b16d58d (Replace envelope.png with envelope1.png, add logo, update HTML/CSS)
                         </div>
                     `;
                     return;
