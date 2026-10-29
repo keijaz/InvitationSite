@@ -1,4 +1,4 @@
-# 💌 Invitation Site
+# Invitation Site
 
 A beautiful, responsive single-page invitation site featuring a **live countdown to the event** and an **embedded Google Maps location** so guests know exactly when and where to celebrate.
 
@@ -28,7 +28,11 @@ The opening view with the envelope graphic, event title, and personalized greeti
 ### ⏳ Countdown Timer
 A real-time countdown showing days, hours, minutes, and seconds remaining until the event.
 
-![Countdown Timer](screenshots/countdown.png) (screenshots/date.png)
+![Countdown Timer](screenshots/countdown.png) 
+
+**Event date:**
+
+![Date](screenshots/date.png) 
 
 ---
 
@@ -39,29 +43,14 @@ The venue details with an embedded interactive Google Map for easy navigation.
 
 ---
 
-### 📱 Mobile View
-The layout adapts beautifully to smaller screens.
-
-<img src="screenshots/mobile.png" alt="Mobile View" width="300">
-
----
-
 ## 🛠️ Tech Stack
 
 | Layer | Technology |
 |-------|------------|
 | Markup | HTML5 |
-| Styling | CSS3 (Flexbox / Grid) |
+| Styling | CSS |
 | Logic | Vanilla JavaScript |
-| Map | Google Maps Embed API |
-| Hosting | GitHub Pages (optional) |
+| Hosting | GitHub Pages |
 
 ---
 
-## 🚀 Getting Started
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/keijaz/InvitationSite.git
-cd InvitationSite
